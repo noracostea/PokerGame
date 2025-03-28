@@ -15,16 +15,39 @@ class Hand:
         return str(self.cards)
 
     @property
-    def is flush(self):
+    def is_flush(self):
         for card in self.cards[1:]:
             if self.cards[0].suit != card.suit:
                 return False
         return True
 
-while True:
+    @property
+    def is pair(self):
+        matches = 0
+        for c1 in self.cards:
+            for c2 in self.cards:
+                if c1 == c2:
+                    continue
+        for i in range(5):
+            for j in range (5:
+                if i == j:
+                    continue:
+                if self.cards[i].rank == self.cards[j].rank:
+                    matches += 1
+        if matches == 2:
+            return True
+        return False
+
+matches = 0
+count = 0
+while matches < 10000:
     deck = Deck()
     deck.shuffle()
     hand = Hand(deck)
-    if hand.is_flush:
-    print(hand)
-    break
+    count += 1
+    if hand.is_pair:
+        print(hand)
+        matches += 1
+        #break
+
+print(f"The probability of a flush is {100*matches/count}")
