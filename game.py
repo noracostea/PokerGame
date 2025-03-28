@@ -51,3 +51,10 @@ while matches < 10000:
         #break
 
 print(f"The probability of a flush is {100*matches/count}")
+
+    @property
+    def is_straight(self):
+        if self.num_matches != 0:
+            return False
+        self.cards.sort()
+matches = 0
